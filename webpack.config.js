@@ -9,7 +9,7 @@ const webpack = require("webpack");
 // Here, you write different options and tell Webpack what to do
 module.exports = {
   // Path to your entry point. From this file Webpack will begin its work
-  entry: ["@babel/polyfill", "./src/scripts/index.js"],
+  entry: ["@babel/polyfill", "./src/scripts/index.ts"],
 
   // Path and filename of your result bundle.
   // Webpack will bundle all JavaScript into this file
@@ -22,12 +22,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.ts$/,
         exclude: /(node_modules)/,
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env"],
+            presets: ["@babel/preset-typescript"],
           },
         },
       },
@@ -53,6 +53,8 @@ module.exports = {
       },
     ],
   },
+
+  resolve: { extensions: [".js", ".jsx", ".tsx", ".ts", ".json"] },
 
   plugins: [
     new webpack.ProvidePlugin({

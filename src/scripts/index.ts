@@ -5,7 +5,7 @@ import p5 from "p5";
 const CANVAS_WIDTH = 720;
 const CANVAS_HEIGHT = 400;
 
-const sketch = (s) => {
+const sketch = (s: p5) => {
   s.setup = () => {
     s.createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
     s.background(220);
